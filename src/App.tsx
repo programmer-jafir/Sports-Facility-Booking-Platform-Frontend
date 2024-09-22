@@ -1,11 +1,13 @@
-import './App.css'
-import { Button } from './components/ui/ui/button'
+import Navbar from './components/Navbar/Navbar'
+import MainLayout from './components/layout/MainLayout'
 
 function App() {
 
   return (
    <>
-   <Button>Hlw</Button>
+   <Navbar></Navbar>
+   {/* <Hero></Hero> */}
+   <MainLayout></MainLayout>
    </>
   )
 }
