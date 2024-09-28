@@ -1,5 +1,6 @@
 import AdminDashboard from "../Pages/admin/AdminDashboard";
 import AllBookings from "../Pages/admin/AllBookings";
+import Booking from "../Pages/admin/BookingManagement/Booking";
 import CreateFacility from "../Pages/admin/CreateFacility";
 import DeleateFacility from "../Pages/admin/DeleateFacility";
 import UpdateFacility from "../Pages/admin/UpdateFacility";
@@ -9,6 +10,16 @@ export const adminPaths = [
         name: 'Dashboard',
         path: 'dashboard',
         element: <AdminDashboard/>,
+    },
+    {
+        name: 'Booking',
+        children:[
+            {
+                name: 'Booking',
+                path: 'Booking',
+                element: <Booking/>, 
+            },
+        ]
     },
     {
         name: 'Facility',

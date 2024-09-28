@@ -1,51 +1,47 @@
 import { useLoginMutation } from '../redux/features/auth/authApi';
-import { useForm } from 'react-hook-form';
-import { Button } from 'antd';
+import { FieldValues, useForm } from 'react-hook-form';
+import { Button, Row } from 'antd';
 import { useAppDispatch } from '../redux/hooks';
-import { setUser } from '../redux/features/auth/authSlice';
+import { setUser, TUser } from '../redux/features/auth/authSlice';
 import { verifyToken } from '../utils/verifytoken';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
+import FGForm from '../components/form/FGForm';
+import FGInput from '../components/form/FGInput';
 
 const Login = () => {
-  const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
-  //  "email": "robina@gmail.com",
-  // "password": "abce1235"
-  //  "email": "web@programming-hero.com",
-  // "password": "programming-hero"
-    const { register, handleSubmit } = useForm({
-        defaultValues: {
-          email: 'robina@gmail.com',
-          password: 'abce1235',
-        },
-      });
 
-      const [login, { error }] = useLoginMutation ();    
 
-      const onSubmit= async (data) => {
-        const userInfo = {
-            email: data.email,
-            password: data.password,
-        };
-      const res = await login(userInfo).unwrap();
-        console.log("response =>",res)
-        const user = verifyToken(res.token);
+      const [login] = useLoginMutation ();    
 
-        dispatch(setUser({user: user, token: res.token}))
-        
+      const onSubmit= async (data: FieldValues) => {
+        const toastId = toast.loading('Logging in')
+        try{
+          const userInfo = {
+              email: data.email,
+              password: data.password,
+          };
+        const res = await login(userInfo).unwrap();
+          const user = verifyToken(res.token) as TUser;
+          dispatch(setUser({user: user, token: res.token}))
+          toast.success('Logged in', {id: toastId, duration: 2000})
+          navigate(`/${user.role}/dashboard`)
+        }catch(err){
+          toast.error("Something went wrong", {id: toastId, duration: 2000})
+        }
     };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-    <div>
-      <label htmlFor="email">Email: </label>
-      <input type="email" id="email" {...register('email')}/>
-    </div>
-    <div>
-      <label htmlFor="password">Password: </label>
-      <input type="password" id="password" {...register('password')}/>
-    </div>
+    <Row justify="center" align="middle" style={{ height:"100vh"}}>
+    <FGForm onSubmit={onSubmit}>
+      <FGInput type="email" name="email" label="Email:"/>
+      <FGInput type="password" name="password" label="Password:"/>
     <Button htmlType="submit">Login</Button>
-  </form>
+  </FGForm>
+    </Row>
   );
 };
 
