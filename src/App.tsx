@@ -1,14 +1,18 @@
 import Navbar from './components/Navbar/Navbar'
+import SportsFooter from './components/SportsFooter'
 import MainLayout from './components/layout/MainLayout'
+import ProtectedRoute from './components/layout/ProtectedRoute'
 
 function App() {
 
   return (
    <>
-   <Navbar></Navbar>
-   {/* <Hero></Hero> */}
-   <MainLayout></MainLayout>
+   <Navbar/>
+   <ProtectedRoute>
+   <MainLayout/>
+   </ProtectedRoute>
    </>
+
   )
 }
 
