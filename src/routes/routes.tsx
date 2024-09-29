@@ -6,6 +6,7 @@ import { adminPaths } from "./admin.routes";
 import { routeGenerator } from "../utils/routesGenerator";
 import { userPaths } from "./user.routes";
 import Home from "../Pages/Home";
+import ContactPage from "../Pages/ContactPage";
 
 const router = createBrowserRouter([
     {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
     {
         path: '/login',
         element: <Login/>
+    },
+    {
+        path: '/contact',
+        element: <ContactPage/>
     },
     {
         path: '/register',

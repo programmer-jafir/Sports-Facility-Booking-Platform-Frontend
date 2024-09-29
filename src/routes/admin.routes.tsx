@@ -4,12 +4,18 @@ import Booking from "../Pages/admin/BookingManagement/Booking";
 import CreateFacility from "../Pages/admin/CreateFacility";
 import DeleateFacility from "../Pages/admin/DeleateFacility";
 import UpdateFacility from "../Pages/admin/UpdateFacility";
+import CreateUser from "../Pages/admin/CreateUser";
 
 export const adminPaths = [
     {
         name: 'Dashboard',
         path: 'dashboard',
         element: <AdminDashboard/>,
+    },
+    {
+        name: 'Create User',
+        path: 'create-user',
+        element: <CreateUser/>,
     },
     {
         name: 'Booking',

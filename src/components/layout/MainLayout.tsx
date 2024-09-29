@@ -14,7 +14,7 @@ const MainLayout = () => {
     dispatch(logout())
   }
   return (
-    <Layout className="bg-yellow-700" style={{height: '100vh'}}>
+    <Layout className="bg-yellow-700" style={{height: '100%'}}>
       <Sidebar/>
       <Layout>
         <Header> <Button onClick={handleLogout}>Logout</Button> </Header>

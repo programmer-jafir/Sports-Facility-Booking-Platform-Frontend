@@ -1,4 +1,4 @@
-import img from '../assets/images/chino-rocha-2FKTyJqfWX8-unsplash.jpg'
+import img from '../../assets/images/chino-rocha-2FKTyJqfWX8-unsplash.jpg'
 import { motion } from 'framer-motion';
 const Hero = () => {
     return (
