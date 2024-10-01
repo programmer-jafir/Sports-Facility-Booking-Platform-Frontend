@@ -1,30 +1,52 @@
-import { FieldValues } from 'react-hook-form';
+import { FieldValues, useForm } from 'react-hook-form';
 import Navbar from '../components/Navbar/Navbar';
 import FGForm from '../components/form/FGForm';
 import FGInput from '../components/form/FGInput';
 import { Button } from 'antd';
 import { toast } from 'sonner';
 import SportsFooter from '../components/HomeComponents/SportsFooter';
+import { useSineupMutation } from '../redux/features/auth/authApi';
+import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
+  const navigate = useNavigate();
+  const defaultValues = {
+    role: "user",
+  };
+  const { control, handleSubmit } = useForm({defaultValues});
+  const [sineup] = useSineupMutation()
 
     const onSubmit= async (data: FieldValues) => {
-      const toastId = toast.loading('You are successfully register')
-      try{
-          const userInfo = {
+      // const toastId = toast.loading('You are successfully register')
+      
+          const user = {
             name: data.name,
             email: data.email,
             password: data.password,
             phone: data.phone,
-            role: 'user',
             address: data.address,
+            role: data.role,
         };
-        console.log(userInfo)
- 
-        toast.success('You are successfully register', {id: toastId, duration: 2000})
+        
+        try{
+          console.log(data)
+          const res = await sineup(user);
+          console.log(res)
+          if(res.error){
+              toast.error('User is already exist')
+          }else{
+            toast.success('You are successfully register')
+
+          }
+          if(res.data){
+            navigate('/login')
+          }
       }catch(err){
-        toast.error("Something went wrong", {id: toastId, duration: 2000})
-      }
+        toast.error("Something went wrong")
+      } 
+ 
+      
+      
   };
     return (
         <>
@@ -34,22 +56,22 @@ const Register = () => {
     <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Welcome to Sportix</h2>
     <p className="text-center text-gray-500 mb-8">Register and enjoy services</p>
     
-    <FGForm onSubmit={onSubmit} className="space-y-6">
+    <FGForm onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="relative">
-      <FGInput type="name" name="name" label="Full Name:"/>
+      <FGInput control={control} type="name" name="name" label="Full Name:" rules={{ required: 'Name is required' }}/>
       </div>
       <div className="relative">
-      <FGInput type="email" name="email" label="Email Address:"/>
+      <FGInput control={control} type="email" name="email" label="Email Address:" rules={{ required: 'Email is required' }}/>
       </div>
 
       <div className="relative">
-      <FGInput type="password" name="password" label="Password:"/>
+      <FGInput control={control} type="password" name="password" label="Password:" rules={{ required: 'Password is required' }}/>
       </div>
       <div className="relative">
-      <FGInput type="number" name="phone" label="Phone Number:"/>
+      <FGInput control={control} type="number" name="phone" label="Phone Number:" rules={{ required: 'Phone number is required' }}/>
       </div>
       <div className="relative">
-      <FGInput type="text" name="address" label="Address:"/>
+      <FGInput control={control} type="text" name="address" label="Address:" rules={{ required: 'Address is required' }}/>
       </div>
       
 
