@@ -1,21 +1,30 @@
 import { Form, Input } from "antd";
-import { Controller,  } from "react-hook-form";
+import { Controller } from "react-hook-form";
 
 type TInputProps = {
-    type: string;
-    name: string;
-    label?: string;
-  };
+  type: string;
+  name: string;
+  label?: string;
+  rules?: object;
+  control: any;
+};
 
-const FGInput = ({ type, name, label }: TInputProps) => {
+const FGInput = ({ control, type, name, label, rules }: TInputProps) => {
   return (
-    <div style={{marginBottom: '20px'}}>
+    <div style={{ marginBottom: "20px" }}>
       <Controller
         name={name}
-        render={({field}) =><Form.Item label={label}>
-
-          <Input {...field} type={type} id={name}/>
-        </Form.Item> }
+        control={control}
+        rules={rules}
+        render={({ field, fieldState: { error } }) => (
+          <Form.Item 
+          label={label}
+          validateStatus={error ? `${'error'}` : ''}
+            help={error ? error.message : null}
+          >
+            <Input {...field} type={type} id={name} />
+          </Form.Item>
+        )}
       />
     </div>
   );

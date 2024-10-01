@@ -9,6 +9,7 @@ import {
 
 type TFormConfig = {
   defaultValues?: Record<string, any>;
+  resolver?:any;
 };
 
 type TFormProps = {
@@ -17,12 +18,15 @@ type TFormProps = {
 } & TFormConfig;
 
 
-const FGForm = ({ onSubmit, children, defaultValues }: TFormProps) => {
+const FGForm = ({ onSubmit, children, defaultValues, resolver }: TFormProps) => {
     
     const formConfig: TFormConfig = {};
 
     if (defaultValues) {
       formConfig['defaultValues'] = defaultValues;
+    }
+    if (resolver) {
+      formConfig['resolver'] = resolver;
     }
 
     const methods = useForm();
