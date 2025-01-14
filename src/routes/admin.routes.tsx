@@ -2,9 +2,8 @@ import AdminDashboard from "../Pages/admin/AdminDashboard";
 import AllBookings from "../Pages/admin/AllBookings";
 import Booking from "../Pages/admin/BookingManagement/Booking";
 import CreateFacility from "../Pages/admin/CreateFacility";
-import DeleateFacility from "../Pages/admin/DeleateFacility";
-import UpdateFacility from "../Pages/admin/UpdateFacility";
 import CreateAdmin from "../Pages/admin/CreateAdmin";
+import Facility from "../Pages/admin/FacilityManagement/Facility";
 
 export const adminPaths = [
     {
@@ -36,19 +35,14 @@ export const adminPaths = [
                 element: <CreateFacility/>, 
             },
             {
-                name: 'Update Facility',
-                path: 'update-facility',
-                element: <UpdateFacility/>, 
-            },
-            {
-                name: 'Delete Facility',
-                path: 'delete-facility',
-                element: <DeleateFacility/>, 
-            },
-            {
                 name: 'All Bookings',
                 path: 'all-bookings',
                 element: <AllBookings/>, 
+            },
+            {
+                name: 'All Facility',
+                path: 'all-facility',
+                element: <Facility/>, 
             },
         ]
     },

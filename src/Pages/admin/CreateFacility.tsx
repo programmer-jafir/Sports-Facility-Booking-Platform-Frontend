@@ -6,7 +6,7 @@ import { useAddFacilityMutation } from '../../redux/features/admin/feacilityMana
 import { toast } from 'sonner';
 
 const CreateFacility = () => {
-    const { control, handleSubmit } = useForm();
+    const { control, handleSubmit, reset } = useForm();
     const [addFacility] = useAddFacilityMutation()
     const onSubmit: SubmitHandler<FieldValues> = async(data) => {
         const facility = {
@@ -21,6 +21,7 @@ const CreateFacility = () => {
             const res = await addFacility(facility);
             console.log(res)
                 toast.success('Facility create successfully')
+                reset();
         }catch(err){
             toast.error('Something went wrong')
         } 

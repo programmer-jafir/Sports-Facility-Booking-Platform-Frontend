@@ -7,6 +7,9 @@ import { routeGenerator } from "../utils/routesGenerator";
 import { userPaths } from "./user.routes";
 import Home from "../Pages/Home";
 import ContactPage from "../Pages/ContactPage";
+import UpdateFacility from "../Pages/admin/FacilityManagement/UpdateFacility";
+import FacilityDetails from "../Pages/admin/FacilityManagement/FacilityDetails";
+import NotFound from "../Pages/Not.Found";
 
 const router = createBrowserRouter([
     {
@@ -29,6 +32,14 @@ const router = createBrowserRouter([
         children: routeGenerator(userPaths),
     },
     {
+        path: '/facility/:id',
+        element: <UpdateFacility/>
+    },
+    {
+        path: '/facility-details/:id',
+        element:<FacilityDetails/>
+    },
+    {
         path: '/login',
         element: <Login/>
     },
@@ -40,6 +51,10 @@ const router = createBrowserRouter([
         path: '/register',
         element: <Register/>
     },
+    {
+        path: '*',
+        element:<NotFound/>
+      },
 ])
 
 export default router;

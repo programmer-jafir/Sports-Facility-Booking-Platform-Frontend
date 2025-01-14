@@ -13,7 +13,7 @@ const facilities: Facility[] = [
     id: 1,
     name: 'Soccer Field',
     description: 'State-of-the-art field with artificial turf, perfect for both practice and competitive matches.',
-    image: '/assets/soccer-field.jpg', // Replace with actual image path
+    image: 'https://images.pexels.com/photos/9739475/pexels-photo-9739475.jpeg', // Replace with actual image path
   },
   {
     id: 2,
