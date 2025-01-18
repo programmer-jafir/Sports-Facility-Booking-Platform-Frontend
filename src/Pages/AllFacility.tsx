@@ -1,14 +1,15 @@
+import { useState } from "react";
+import SportsFooter from "../components/HomeComponents/SportsFooter";
+import Navbar from "../components/Navbar/Navbar";
+import { useGetAllFacilityQuery } from "../redux/features/admin/feacilityManagement";
+import { useAppSelector } from "../redux/hooks";
+import FacilityCard from "../components/Facility/FacilityCard";
+import { Button } from "../components/ui/ui/button";
+import { GrFormPrevious } from "react-icons/gr";
+import { MdNavigateNext } from "react-icons/md";
 
-import { useState } from 'react';
-import { MdNavigateNext } from 'react-icons/md';
-import { GrFormPrevious } from 'react-icons/gr';
-import { useGetAllFacilityQuery } from '../../../redux/features/admin/feacilityManagement';
-import FacilityCardAdmin from './FacilityCardAdmin';
-import { Button } from 'antd';
-import { useAppSelector } from '../../../redux/hooks';
-
-const Facility = () => {
-  const { data: facilitys, isLoading, isError } = useGetAllFacilityQuery(undefined);
+const AllFacility = () => {
+    const { data: facilitys, isLoading, isError } = useGetAllFacilityQuery(undefined);
   const searchTerm = useAppSelector((state) => state.search.searchTerm.toLowerCase());
   
   const [currentPage, setCurrentPage] = useState(1); 
@@ -43,7 +44,9 @@ const Facility = () => {
   };
 
   return (
-    <div id="facility" className="bg-gray-100">
+    <div id="facility">
+<Navbar/>
+    <div className="bg-gray-100">
       <h1 className="text-4xl text-secondary font-bold text-center py-10">All Facilitys</h1>
       <div id="facilitys" className="flex flex-wrap justify-center items-center min-h-screen bg-gray-100">
         
@@ -54,7 +57,7 @@ const Facility = () => {
         ) : (
           
           currentItems?.map((facility: any) => (
-            <FacilityCardAdmin key={facility._id} facility={facility} />
+            <FacilityCard key={facility._id} facility={facility} />
           ))
         )}
       </div>
@@ -80,7 +83,9 @@ const Facility = () => {
         </div>
       )}
     </div>
+<SportsFooter/>
+    </div>
   );
 };
 
-export default Facility;
+export default AllFacility;

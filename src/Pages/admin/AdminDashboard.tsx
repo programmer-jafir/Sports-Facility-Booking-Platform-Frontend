@@ -1,9 +1,10 @@
-import React from 'react';
+import DashboardBannar from '../../components/DashboardBanner/DashboardBannar';
 
 const AdminDashboard = () => {
+    
     return (
         <div>
-            <h1>This is AdminDashboard</h1>
+            <DashboardBannar/>
         </div>
     );
 };

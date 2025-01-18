@@ -33,10 +33,7 @@ const UpdateFacility = () => {
     if (description) facilityDetails.description = description;
     if (pricePerHour) facilityDetails.pricePerHour = pricePerHour;
     if (location) facilityDetails.location = location;
-    if (!img || !name || !description || !pricePerHour || !location) {
-      toast.error('A field must be filled');
-      return; // Stop execution if any field is empty
-    }
+
 console.log(facilityDetails)
     try {
      await editfacility({ _id: id, updatedfacility: facilityDetails }).unwrap();

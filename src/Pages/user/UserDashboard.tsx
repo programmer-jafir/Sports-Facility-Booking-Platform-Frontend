@@ -1,9 +1,9 @@
-import React from 'react';
+import DashboardBannar from "../../components/DashboardBanner/DashboardBannar";
 
 const UserDashboard = () => {
     return (
         <div>
-            <h1>This is UserDashboard</h1>
+            <DashboardBannar/>
         </div>
     );
 };

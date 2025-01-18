@@ -19,4 +19,9 @@ export const NavbarMenu = [
       title: "contact",
       link: "/contact",
     },
+    {
+      id: 5,
+      title: "facality",
+      link: "/facality",
+    },
   ];

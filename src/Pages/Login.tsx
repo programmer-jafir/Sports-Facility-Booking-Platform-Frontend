@@ -47,7 +47,7 @@ const Login = () => {
   <div className="bg-white rounded-xl shadow-2xl p-10 w-full max-w-lg transform hover:scale-105 transition-transform duration-500">
     <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Welcome Back!</h2>
     <p className="text-center text-gray-500 mb-8">Please login to your account</p>
-    
+    bg-gradient-to-r from-primary to-seco
     <FGForm onSubmit={onSubmit} className="space-y-6">
       <div className="relative">
       <FGInput type="email" name="email" label="Email Address:"/>
@@ -59,7 +59,7 @@ const Login = () => {
 
       <Button
         htmlType="submit"
-        className="w-full py-5 px-4 rounded-full bg-gradient-to-r from-primary to-secondary text-white text-lg font-semibold shadow-lg hover:from-secondary hover:to-primary transition-colors duration-300"
+        className="w-full py-5 px-4 rounded-full ndary text-white text-lg font-semibold shadow-lg hover:from-secondary hover:to-primary transition-colors duration-300"
       >
         Login
       </Button>

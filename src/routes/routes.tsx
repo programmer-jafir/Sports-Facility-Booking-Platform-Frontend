@@ -8,8 +8,10 @@ import { userPaths } from "./user.routes";
 import Home from "../Pages/Home";
 import ContactPage from "../Pages/ContactPage";
 import UpdateFacility from "../Pages/admin/FacilityManagement/UpdateFacility";
-import FacilityDetails from "../Pages/admin/FacilityManagement/FacilityDetails";
+import FacilityDetails from "../components/Facility/FacilityDetails";
 import NotFound from "../Pages/Not.Found";
+import AllFacility from "../Pages/AllFacility";
+import About from "../Pages/About";
 
 const router = createBrowserRouter([
     {
@@ -42,6 +44,14 @@ const router = createBrowserRouter([
     {
         path: '/login',
         element: <Login/>
+    },
+    {
+        path: '/facality',
+        element: <AllFacility/>
+    },
+    {
+        path: '/about',
+        element: <About/>
     },
     {
         path: '/contact',
