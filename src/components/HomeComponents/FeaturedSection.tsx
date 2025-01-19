@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion'; // Framer Motion for animation
+import { useGetAllFacilityQuery } from '../../redux/features/admin/feacilityManagement';
+import FacilityCard from '../Facility/FacilityCard';
 
 interface Facility {
   id: number;
@@ -30,31 +32,22 @@ const facilities: Facility[] = [
 ];
 
 const FeaturedSection: React.FC = () => {
+      const { data: facilitys, isLoading, isError } = useGetAllFacilityQuery(undefined);
+      console.log(facilitys?.data)
+  
   return (
     <section className="py-16 bg-gray-100">
-      <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Featured Facilities</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 m-4">
-          {facilities.map((facility) => (
-            <motion.div
-              key={facility.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-            >
-              <img
-                src={facility.image}
-                alt={facility.name}
-                className="w-full h-56 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{facility.name}</h3>
-                <p className="text-gray-600">{facility.description}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      <div className='container mx-auto'>
+      <h2 className="text-3xl text-secondary font-bold text-center mb-12">Featured Facilities</h2>
+      <div className="flex flex-wrap justify-center items-center min-h-screen bg-gray-100">
+        {
+          
+          facilitys?.data?.slice(0, 3).map((facility: any) => (
+            <FacilityCard key={facility._id} facility={facility} />
+          )
+        )}
+      </div>
+
       </div>
     </section>
   );

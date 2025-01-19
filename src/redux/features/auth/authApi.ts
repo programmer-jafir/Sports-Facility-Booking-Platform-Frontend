@@ -16,15 +16,11 @@ const authApi = baseApi.injectEndpoints({
         body: userInfo,
       }),
     }),
-    // getUser: builder.mutation({
-    //   query: (userInfo) => ({
-    //     url: "/auth/${id}",
-    //     method: "GET",
-    //     body: userInfo,
-    //   }),
-    // }),
     getUser: builder.query({
-      query: (id) => `/auth/${id}`,
+      query: () => ({
+        url: "/auth/:id",
+        method: "GET",
+      }),
     }),
   }),
 });

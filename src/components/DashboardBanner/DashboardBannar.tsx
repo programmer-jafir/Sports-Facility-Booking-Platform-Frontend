@@ -4,9 +4,9 @@ import { selectCurrentUser } from '../../redux/features/auth/authSlice';
 import bannar from './bannar-img.png'
     const DashboardBannar = () => {
     const currentDate = new Date().toJSON().slice(0, 10);
-    const userId = useSelector(selectCurrentUser)?.id;
-    const { data: user, isLoading, error } = useGetUserQuery(userId);
-        console.log(user)
+    // const userId = useSelector(selectCurrentUser)?.id;
+    const { data, isLoading, error } = useGetUserQuery();
+        console.log(data)
 
     return ( 
         <div className="p-4">

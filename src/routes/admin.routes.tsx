@@ -27,7 +27,7 @@ export const adminPaths = [
         ]
     },
     {
-        name: 'Facility',
+        name: 'Facility Management',
         children:[
             {
                 name: 'Create Facility',
