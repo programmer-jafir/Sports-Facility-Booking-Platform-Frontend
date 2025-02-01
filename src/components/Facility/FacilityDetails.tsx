@@ -1,5 +1,5 @@
 import React from "react";
-import {  useParams } from "react-router-dom";
+import {  Link, useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import SportsFooter from "../HomeComponents/SportsFooter";
 import {  useGetaFacilityQuery } from "../../redux/features/admin/feacilityManagement";
@@ -41,7 +41,9 @@ const FacilityDetails: React.FC = () => {
               {data?.data?.pricePerHour}$
             </div>
           </div>
-          <Button className="bg-secondary hover:bg-primary text-white text-base font-medium rounded p-2 px-7 my-19 ml-5">Book Now</Button>
+          <div className="flex justify-center">
+                  <Link className='bg-primary hover:bg-secondary hover:text-white text-white text-base font-medium rounded p-2 px-7 my-2 justify-center' to={`/booking/${data?.data?._id}` }>Book Now</Link>
+                  </div>
         </div>
       </div>
     </div>

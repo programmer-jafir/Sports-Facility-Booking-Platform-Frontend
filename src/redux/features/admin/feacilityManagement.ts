@@ -52,9 +52,55 @@ const facalityManagementApi = baseApi.injectEndpoints({
         }),
         invalidatesTags: ['Facilites'],
     }),
-    
+    useGetAvailableSlotsQuery: builder.query({
+      query: (date) => `available-booking?date=${date}`,
+    }),
+
+    // Check availability with custom logic
+    useCheckAvailabilityMutation: builder.mutation({
+      query: ({ date, facility, allSlots }) => ({
+        url: `check-availability`,
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: { date, facility, allSlots },
       }),
+    }),
+  //   checkAvailability: builder.mutation({
+  //   //   query: ({ date, facility }) => ({
+  //   //     url: `/check-availability?date=${date}&facility=${facility}`,
+  //   //     method: 'GET'
+  //   //   })
+  //   // }),
+  //   query: ({ date, facility, allSlots }) => ({
+  //     url: `check-availability?date=${date}&facility=${facility}`,
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: { allSlots }, // Dynamic slot input
+  //   }),
+  // }),
+  //   getAvailability: builder.query({
+  //   //   query: ({ date, facility }) => ({
+  //   //     url: `/check-availability?date=${date}&facility=${facility}`,
+  //   //     method: 'GET'
+  //   //   })
+  //   // }),
+  //   query: ({ date, facility, allSlots }) => ({
+  //     url: `check-availability?date=${date}&facility=${facility}`,
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/json' },
+  //     body: { allSlots }, // Dynamic slot input
+  //   }),
+  // }),
+  
+  // getAvailableSlots: builder.query({
+  //   query: (date) => ({
+  //     url: `available-booking?date=${date}`,
+  //     method: "GET"
+  //   }) // Your backend endpoint
+  // }),
+}),
+      // }),
 })
 
 
-export const {useGetAllFacilityQuery, useAddFacilityMutation, useEditFacilityMutation ,useDeleteaFacilityMutation, useGetaFacilityQuery } = facalityManagementApi;
+export const {useGetAllFacilityQuery, useAddFacilityMutation, useEditFacilityMutation ,useDeleteaFacilityMutation, useGetaFacilityQuery, useUseGetAvailableSlotsQueryQuery, useUseCheckAvailabilityMutationMutation } = facalityManagementApi;  //,useCheckAvailabilityMutation, useGetAvailableSlotsQuery, useGetAvailabilityQuery

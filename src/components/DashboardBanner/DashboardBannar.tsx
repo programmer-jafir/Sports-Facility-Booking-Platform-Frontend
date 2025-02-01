@@ -1,12 +1,10 @@
  import { useSelector } from 'react-redux';
-import { useGetUserQuery } from '../../redux/features/auth/authApi';
-import { selectCurrentUser } from '../../redux/features/auth/authSlice';
 import bannar from './bannar-img.png'
+import { RootState } from '../../redux/store';
     const DashboardBannar = () => {
     const currentDate = new Date().toJSON().slice(0, 10);
-    // const userId = useSelector(selectCurrentUser)?.id;
-    const { data, isLoading, error } = useGetUserQuery();
-        console.log(data)
+    const user = useSelector((state: RootState) => state.auth.user);
+        console.log(user)
 
     return ( 
         <div className="p-4">
@@ -15,7 +13,7 @@ import bannar from './bannar-img.png'
                 <div className="flex-1 text-center md:text-left p-5">
                     <h4 className="text-white text-base md:text-lg mb-4">{currentDate}</h4>
                     <h1 className="text-white text-3xl md:text-5xl font-bold pb-3">
-                        Welcome back, Jafir!
+                        Welcome back, {user?.name}!
                     </h1>
                     <p className="text-white text-sm md:text-xl">
                         Always stay connected with us

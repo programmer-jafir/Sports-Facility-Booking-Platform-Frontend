@@ -12,6 +12,7 @@ import FacilityDetails from "../components/Facility/FacilityDetails";
 import NotFound from "../Pages/Not.Found";
 import AllFacility from "../Pages/AllFacility";
 import About from "../Pages/About";
+import Booking from "../Pages/Booking";
 
 const router = createBrowserRouter([
     {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
     {
         path: '/contact',
         element: <ContactPage/>
+    },
+    {
+        path: '/booking/:id',
+        element: <Booking/>
     },
     {
         path: '/register',

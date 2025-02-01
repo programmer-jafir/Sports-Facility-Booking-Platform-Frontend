@@ -1,5 +1,4 @@
 import AdminDashboard from "../Pages/admin/AdminDashboard";
-import AllBookings from "../Pages/admin/AllBookings";
 import Booking from "../Pages/admin/BookingManagement/Booking";
 import CreateFacility from "../Pages/admin/CreateFacility";
 import CreateAdmin from "../Pages/admin/CreateAdmin";
@@ -33,11 +32,6 @@ export const adminPaths = [
                 name: 'Create Facility',
                 path: 'create-facility',
                 element: <CreateFacility/>, 
-            },
-            {
-                name: 'All Bookings',
-                path: 'all-bookings',
-                element: <AllBookings/>, 
             },
             {
                 name: 'All Facility',
