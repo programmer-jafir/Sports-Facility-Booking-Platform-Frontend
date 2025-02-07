@@ -16,10 +16,6 @@ const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-    //  "email": "robina@gmail.com",
-  // "password": "abce1235"
-  //  "email": "web@programming-hero.com",
-  // "password": "programming-hero"
 
       const [login] = useLoginMutation ();    
 
