@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 interface facilityCardProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   facility:any;
 }
 

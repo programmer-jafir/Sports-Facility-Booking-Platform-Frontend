@@ -1,39 +1,15 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { motion } from 'framer-motion'; // Framer Motion for animation
 import { useGetAllFacilityQuery } from '../../redux/features/admin/feacilityManagement';
 import FacilityCard from '../Facility/FacilityCard';
 
-interface Facility {
-  id: number;
-  name: string;
-  description: string;
-  image: string;
-}
 
-const facilities: Facility[] = [
-  {
-    id: 1,
-    name: 'Soccer Field',
-    description: 'State-of-the-art field with artificial turf, perfect for both practice and competitive matches.',
-    image: 'https://images.pexels.com/photos/9739475/pexels-photo-9739475.jpeg', // Replace with actual image path
-  },
-  {
-    id: 2,
-    name: 'Tennis Court',
-    description: 'High-quality tennis courts with night lighting, ideal for players of all skill levels.',
-    image: '/assets/tennis-court.jpg',
-  },
-  {
-    id: 3,
-    name: 'Swimming Pool',
-    description: 'Olympic-sized swimming pool with temperature control and professional lifeguard services.',
-    image: '/assets/swimming-pool.jpg',
-  },
-];
 
 const FeaturedSection: React.FC = () => {
       const { data: facilitys, isLoading, isError } = useGetAllFacilityQuery(undefined);
       console.log(facilitys?.data)
+      console.log(isLoading)
+      console.log(isError)
   
   return (
     <section className="py-16 bg-gray-100">

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useLoginMutation } from '../redux/features/auth/authApi';
 import { FieldValues } from 'react-hook-form';
 import { Button } from 'antd';
@@ -47,13 +48,14 @@ const Login = () => {
   <div className="bg-white rounded-xl shadow-2xl p-10 w-full max-w-lg transform hover:scale-105 transition-transform duration-500">
     <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Welcome Back!</h2>
     <p className="text-center text-gray-500 mb-8">Please login to your account</p>
-    <FGForm onSubmit={onSubmit} className="space-y-6">
+    <div className="space-y-6">
+    <FGForm onSubmit={onSubmit} >
       <div className="relative">
-      <FGInput type="email" name="email" label="Email Address:"/>
+      <FGInput type="email" name="email" label="Email Address:" control={undefined}/>
       </div>
 
       <div className="relative">
-      <FGInput type="password" name="password" label="Password:"/>
+      <FGInput type="password" name="password" label="Password:" control={undefined}/>
       </div>
 
       <Button
@@ -63,7 +65,7 @@ const Login = () => {
         Login
       </Button>
     </FGForm>
-    
+    </div>
     <div className="text-center mt-6">
       <Link to="/register" className="text-indigo-600 hover:text-indigo-500 font-medium text-sm"><span className='text-red-500'>Are you new?</span> Register Now</Link>
     </div>

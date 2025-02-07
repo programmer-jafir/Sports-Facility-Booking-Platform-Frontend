@@ -1,18 +1,21 @@
 import { ReactNode } from "react";
 
 export type TUserPaths = {
-    name: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    reduce?: any;
+    name?: string,
     path?: string,
     element?: ReactNode,
     children?: TUserPaths[]
 };
+
 
 export type TRoute ={
     path: string;
     element: ReactNode;
 };
 export type TSidebarItem = {
-    key: string;
+    key?: string;
     label: ReactNode;
     children?: TSidebarItem[];
   };

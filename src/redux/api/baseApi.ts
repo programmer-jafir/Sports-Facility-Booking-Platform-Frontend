@@ -3,6 +3,7 @@ import { RootState } from "../store";
 const baseQueary = fetchBaseQuery({
     baseUrl: 'https://assignment-3-mu-seven.vercel.app/api', //http://localhost:5000/api
     credentials: 'include',
+    
     prepareHeaders(headers, {getState}) {
         const token = (getState() as RootState).auth.token;
     if(token) {
@@ -10,11 +11,13 @@ const baseQueary = fetchBaseQuery({
     }
     return headers;
     },
-});
+})
+;
 
 
 export const baseApi= createApi({
     reducerPath: 'baseApi',
     baseQuery: baseQueary,
+    tagTypes: ["Facilites"],
     endpoints: () => ({}),
 });

@@ -41,8 +41,9 @@ const facalityManagementApi = baseApi.injectEndpoints({
         query: (_id: string) => ({
             url: `/facility/${_id}`,
             method:'GET',
-        }),
-        invalidatesTags: ['Facilities'],
+            invalidatesTags: ['Facilites'],
+          }
+      ),
     }),
       deleteaFacility : builder.mutation({
         query: (_id: string) => ({

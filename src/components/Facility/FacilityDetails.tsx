@@ -3,8 +3,6 @@ import {  Link, useParams } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import SportsFooter from "../HomeComponents/SportsFooter";
 import {  useGetaFacilityQuery } from "../../redux/features/admin/feacilityManagement";
-import { Button } from "../ui/ui/button";
-
 
 const FacilityDetails: React.FC = () => {
   const { id } = useParams();

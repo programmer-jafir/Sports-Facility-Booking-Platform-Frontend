@@ -2,7 +2,7 @@ import { useGetAllBookingsQuery } from "../../../redux/features/booking/booking"
 
 const Booking = () => {
     const {data, error, isLoading } = useGetAllBookingsQuery(undefined);
-    console.log(data?.data.map((i)=>i.endTime))
+    console.log(data?.data.map((i: { endTime: any; })=>i.endTime))
     if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading bookings!</p>;
 

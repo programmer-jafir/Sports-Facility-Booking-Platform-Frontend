@@ -36,12 +36,12 @@ const brands = [
 ];
 
 const Brand = () => {
-    const scrollRef = useRef(null);
+    const scrollRef =  useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const scrollContainer = scrollRef.current;
         let scrollAmount = 0;
-        const speed = 0.02;
+        const speed = 0.03;
     
         const scroll = () => {
           if (scrollContainer) {
