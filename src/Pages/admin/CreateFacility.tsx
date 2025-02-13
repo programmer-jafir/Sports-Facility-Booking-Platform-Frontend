@@ -22,6 +22,7 @@ const CreateFacility = () => {
             console.log(res)
                 toast.success('Facility create successfully')
                 reset();
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         }catch(err){
             toast.error('Something went wrong')
         } 
@@ -31,8 +32,7 @@ const CreateFacility = () => {
     return (
         <Flex justify='center' align='center'>
         <Col span={6}>
-        <FGForm onSubmit={handleSubmit(onSubmit)}
-        >
+          <FGForm onSubmit={(data) => handleSubmit(onSubmit)(data as any)} >
             <FGInput
             control={control}
             type='text'

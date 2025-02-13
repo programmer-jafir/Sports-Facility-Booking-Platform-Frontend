@@ -57,7 +57,9 @@ const Register = () => {
     <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">Welcome to Sportix</h2>
     <p className="text-center text-gray-500 mb-8">Register and enjoy services</p>
     
-    <FGForm onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    <FGForm onSubmit={(data) => handleSubmit(onSubmit)(data as any)} >
+      <div className="space-y-6">
       <div className="relative">
       <FGInput control={control} type="name" name="name" label="Full Name:" rules={{ required: 'Name is required' }}/>
       </div>
@@ -82,6 +84,7 @@ const Register = () => {
       >
         Register
       </Button>
+      </div>
     </FGForm>
     
     <div className="text-center mt-6">
