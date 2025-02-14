@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGetAllBookingsQuery } from "../../../redux/features/booking/booking";
 
 const Booking = () => {

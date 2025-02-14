@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AnimatePresence, motion } from 'framer-motion';
 import { NavbarMenu } from './NavbarMenue';
 

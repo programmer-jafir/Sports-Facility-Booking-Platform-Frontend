@@ -1,10 +1,11 @@
 import { Button } from 'antd';
-import contact from '../../assets/images/Contact.jpg';
+import contact from '../../assets/images/contact.jpg';
+
 
 const Contact = () => {
   return (
     <div id="contact" className="mb-8 bg-gray-100 ">
-            <h1 className="text-4xl text-secondary font-bold text-center mb-10 pt-5">Contact Us</h1>
+            <h1 className="lg:text-4xl sm:text-3xl text-secondary font-bold text-center mb-10 pt-5">Contact Us</h1>
             <div className="flex flex-col md:flex-row items-center justify-evenly min-h-screen bg-gray-100 p-6">
         <div className="md:w-1/2 flex justify-center mb-6 md:mb-0">
           <img src={contact} alt="Contact Us" className="w-full max-w-md rounded-lg shadow-lg" />

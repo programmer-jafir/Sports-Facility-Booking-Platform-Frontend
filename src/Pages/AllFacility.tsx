@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import SportsFooter from "../components/HomeComponents/SportsFooter";
 import Navbar from "../components/Navbar/Navbar";
@@ -66,7 +67,7 @@ const AllFacility = () => {
       {totalPages > 1 && (
         <div className="flex justify-center items-center py-5">
           <Button
-            className={`px-4 py-2 mx-1 bg-green-500 text-white rounded ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-700'}`}
+            className={`px-4 py-2 mx-1 bg-primary text-white rounded ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-secondary'}`}
             onClick={handlePrevPage}
             disabled={currentPage === 1}
           >
@@ -74,7 +75,7 @@ const AllFacility = () => {
           </Button>
           <span className="mx-2 text-lg">{`Page ${currentPage} of ${totalPages}`}</span>
           <Button
-            className={`px-4 py-2 mx-1 bg-green-500 text-white rounded ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-green-700'}`}
+            className={`px-4 py-2 mx-1 bg-primary text-white rounded ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : 'hover:bg-secondary'}`}
             onClick={handleNextPage}
             disabled={currentPage === totalPages}
           >

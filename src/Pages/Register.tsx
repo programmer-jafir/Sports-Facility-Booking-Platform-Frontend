@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { FieldValues, useForm } from 'react-hook-form';
 import Navbar from '../components/Navbar/Navbar';

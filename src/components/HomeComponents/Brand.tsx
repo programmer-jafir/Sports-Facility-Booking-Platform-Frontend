@@ -65,8 +65,8 @@ const Brand = () => {
       }, []);
     
       return (
-        <div className="mt-12 overflow-hidden relative">
-          <h2 className="text-3xl font-bold text-center mb-8 text-secondary">Our Previous Collaborations</h2>
+        <div className="pt-12 overflow-hidden relative ">
+          <h2 className="lg:text-4xl sm:text-3xl font-bold text-center pb-8 text-secondary">Our Previous Collaborations</h2>
           <div ref={scrollRef} className="flex whitespace-nowrap overflow-hidden invisible:no-scrollbar my-20">
             {brands.concat(brands).map((brand, index) => (
               <img

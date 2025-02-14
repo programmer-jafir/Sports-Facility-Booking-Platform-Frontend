@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link } from "react-router-dom";
 import { Button } from 'antd';
 import { useDeleteaFacilityMutation, useGetAllFacilityQuery } from '../../../redux/features/admin/feacilityManagement';

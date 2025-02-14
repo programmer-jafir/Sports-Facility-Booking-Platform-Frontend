@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { FormEvent, useState} from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEditFacilityMutation, useGetAllFacilityQuery } from '../../../redux/features/admin/feacilityManagement';

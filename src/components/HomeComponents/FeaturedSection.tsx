@@ -12,10 +12,10 @@ const FeaturedSection: React.FC = () => {
       console.log(isError)
   
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="pt-12 ">
       <div className='container mx-auto'>
-      <h2 className="text-3xl text-secondary font-bold text-center mb-12">Featured Facilities</h2>
-      <div className="flex flex-wrap justify-center items-center min-h-screen bg-gray-100">
+      <h2 className="lg:text-4xl sm:text-3xl text-secondary font-bold text-center lg:mb-0 mb-8">Featured Facilities</h2>
+      <div className="flex flex-wrap justify-center items-center min-h-screen ">
         {
           
           facilitys?.data?.slice(0, 3).map((facility: any) => (

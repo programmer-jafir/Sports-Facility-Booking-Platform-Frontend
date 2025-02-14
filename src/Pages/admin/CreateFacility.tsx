@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button, Col, Flex } from 'antd';
 import FGForm from '../../components/form/FGForm';
 import FGInput from '../../components/form/FGInput';
