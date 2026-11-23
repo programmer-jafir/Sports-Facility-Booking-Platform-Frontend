@@ -18,14 +18,11 @@ const CreateFacility = () => {
             img:data.img,
         }
         try{
-            console.log(data)
-            const res = await addFacility(facility);
-            console.log(res)
-                toast.success('Facility create successfully')
-                reset();
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        }catch(err){
-            toast.error('Something went wrong')
+            await addFacility(facility).unwrap();
+            toast.success('Facility create successfully')
+            reset();
+        }catch{
+            toast.error('Unable to create facility. Check your admin access and required fields.')
         } 
     }
 
